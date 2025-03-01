@@ -444,6 +444,9 @@ function get_platform() {
             "Allwinner sun8i Family")
                 __platform="armv7-mali"
                 ;;
+            "Libre Computer Board AML-S905X-CC")
+                __platform="LePotato"
+                ;;
             *)
                 # jetsons can be identified by device tree or soc0/family (depending on the L4T version used)
                 # refer to the nv.sh script in the L4T DTS for a similar implementation
@@ -701,3 +704,12 @@ function platform_vero4k() {
     __default_cflags="-I/opt/vero3/include -L/opt/vero3/lib"
     __platform_flags+=(mali gles)
 }
+
+function platform_s905x() {
+    __platform_flags="aarch64 mali"
+    __default_cflags="-02 -march=armv8-a+crc+crypto -mtune=cortex-a53"
+    __platform_flags+=" 64bit"
+
+    __has_armv8=1
+    __has_neon=1
+    __cpu_cores=4
