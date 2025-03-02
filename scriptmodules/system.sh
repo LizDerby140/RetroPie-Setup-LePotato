@@ -723,3 +723,4 @@ function platform_lepotato() {
     __has_armv8=1
     __has_neon=1
     __cpu_cores=4
+}
