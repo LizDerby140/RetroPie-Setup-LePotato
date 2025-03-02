@@ -716,11 +716,8 @@ function platform_vero4k() {
 }
 
 function platform_lepotato() {
-    __platform_flags="aarch64 mali"
-    __default_cflags="-02 -march=armv8-a+crc+crypto -mtune=cortex-a53"
-    __platform_flags+=" 64bit"
-
-    __has_armv8=1
-    __has_neon=1
-    __cpu_cores=4
+cpu_armv8 "cortex-a53"
+    __default_cflags="-O2 -march=armv8-a+crc+crypto -mtune=cortex-a53"
+    __platform_flags+=(mali 64bit)
+}
 }
