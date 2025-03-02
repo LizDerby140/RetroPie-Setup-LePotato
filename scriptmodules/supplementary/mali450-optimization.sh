@@ -65,17 +65,6 @@ if [[ -f "$n64_config" ]]; then
     iniSet "video_threaded" "true"
     iniSet "video_vsync" "false"
     
-    # Mupen64Plus-Next specific optimizations
-    iniSet "mupen64plus-rdp-plugin" "gliden64"  # Use GlideN64 for better performance
-    iniSet "mupen64plus-parallel-rdp" "false"  # Disable Parallel RDP (too slow on Mali-450)
-    iniSet "mupen64plus-rsp-plugin" "hle"      # Use HLE RSP for speed
-    iniSet "mupen64plus-EnableFBEmulation" "False"
-    iniSet "mupen64plus-cpucore" "dynamic_recompiler"  # Best performance
-    
-    # Parallel-N64 core-specific settings
-    iniSet "parallel-n64-gfxplugin" "rice"  # Rice plugin is often the fastest
-    iniSet "parallel-n64-angrylion" "false"
-    iniSet "parallel-n64-gfxplugin-accuracy" "low"  # Prioritize performance
 fi
 
 # PSP optimizations for Mali-450
@@ -88,47 +77,5 @@ if [[ -f "$psp_config" ]]; then
     iniSet "video_threaded" "true"
     iniSet "video_vsync" "false"
 
-    # PPSSPP core-specific optimizations
-    iniSet "ppsspp_cpu_core" "jit"  # Use Just-In-Time compiler for better speed
-    iniSet "ppsspp_frameskip" "1"   # Light frameskip
-    iniSet "ppsspp_frameskip_type" "numbered"
-    iniSet "ppsspp_block_transfer_gpu" "false"  # Disabling can help on weaker GPUs
-    iniSet "ppsspp_fast_memory" "true"
-    iniSet "ppsspp_enable_mipmapping" "false"  # Avoid unnecessary texture processing
-    iniSet "ppsspp_enable_hack_settings" "true"
-    
-    # Resolution and rendering settings
-    iniSet "ppsspp_internal_resolution" "1"  # Keep at native resolution for best performance
-    iniSet "ppsspp_texture_filtering" "0"    # No filtering for better speed
-    iniSet "ppsspp_vertex_cache" "true"
-    iniSet "ppsspp_enable_software_skinning" "true"
-fi
-
-    iniSet "video_threaded" "true"
-    iniSet "video_vsync" "true"
-    iniSet "video_crop_overscan" "true"
-    iniSet "video_smooth" "false"
-    # Performance settings for Reicast/Flycast
-    iniSet "reicast_threaded_rendering" "enabled"
-    iniSet "reicast_internal_resolution" "640x480"
-    iniSet "reicast_enable_rtt" "disabled"
-    iniSet "reicast_enable_purupuru" "disabled"
-fi
-
-# PlayStation (PSX) optimizations for Mali-450
-local psx_config="$configdir/psx/retroarch.cfg"
-if [[ -f "$psx_config" ]]; then
-    iniConfig " = " '"' "$psx_config"
-    iniSet "video_filter" "normal2x"
-    iniSet "video_shader_enable" "false"
-    iniSet "video_smooth" "false"
-    iniSet "video_threaded" "true"
-    # PCSX-ReARMed specific settings
-    iniSet "pcsx_rearmed_frameskip" "1"
-    iniSet "pcsx_rearmed_dithering" "disabled"
-    iniSet "pcsx_rearmed_gpu_peops_odd_even_bit" "disabled"
-    iniSet "pcsx_rearmed_gpu_peops_expand_screen_width" "disabled"
-    iniSet "pcsx_rearmed_spu_reverb" "disabled"
-    iniSet "pcsx_rearmed_spu_interpolation" "simple"
 fi
 }
