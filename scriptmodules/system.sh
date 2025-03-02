@@ -152,6 +152,15 @@ function conf_build_vars() {
     fi
 }
 
+function platform_lepotato_autoinstall() {
+    rp_installModule "s905x-modules"
+    rp_installModule "mali450-driver"
+    rp_installModule "mali450-optimization"
+    rp_installModule "mali-wrapper"
+    rp_installModule "lepotato-setup"
+
+}
+
 function get_os_version() {
     # make sure lsb_release is installed
     getDepends lsb-release
@@ -445,7 +454,8 @@ function get_platform() {
                 __platform="armv7-mali"
                 ;;
             "Libre Computer Board AML-S905X-CC")
-                __platform="LePotato"
+                __platform="lepotato"
+                platform_lepotato_autoinstall
                 ;;
             *)
                 # jetsons can be identified by device tree or soc0/family (depending on the L4T version used)
@@ -705,7 +715,7 @@ function platform_vero4k() {
     __platform_flags+=(mali gles)
 }
 
-function platform_s905x() {
+function platform_lepotato() {
     __platform_flags="aarch64 mali"
     __default_cflags="-02 -march=armv8-a+crc+crypto -mtune=cortex-a53"
     __platform_flags+=" 64bit"
