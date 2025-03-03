@@ -18,7 +18,7 @@ rp_module_section="main"
 rp_module_flags="sdl2 nodistcc"
 
 function depends_mupen64plus() {
-    local depends=(cmake libsamplerate0-dev libspeexdsp-dev libsdl2-dev libpng-dev libfreetype6-dev fonts-freefont-ttf libboost-filesystem-dev)
+    local depends=(cmake libsamplerate0-dev libspeexdsp-dev libsdl2-dev libpng-dev libfreetype6-dev fonts-freefont-ttf libboost-filesystem-dev libglu1-mesa-dev)
     isPlatform "videocore" && depends+=(libraspberrypi-dev)
     isPlatform "mesa" && depends+=(libgles2-mesa-dev)
     isPlatform "gl" && depends+=(libglew-dev libglu1-mesa-dev)
