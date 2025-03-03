@@ -720,4 +720,3 @@ cpu_armv8 "cortex-a53"
     __default_cflags="-O2 -march=armv8-a+crc+crypto -mtune=cortex-a53"
     __platform_flags+=(mali 64bit)
 }
-}
