@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .gba .zip\n\nCopy your Game Boy Advance roms to 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/gpsp/master/COPYING"
 rp_module_repo="git https://github.com/libretro/gpsp.git master"
 rp_module_section="opt arm=main"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function sources_lr-gpsp() {
     gitPullOrClone
