@@ -14,7 +14,7 @@ rp_module_desc="DOOM source port based on PrBoom+, focused on speedrunning and Q
 rp_module_licence="GPL2 https://raw.githubusercontent.com/kraflab/dsda-doom/master/prboom2/COPYING"
 rp_module_repo="git https://github.com/kraflab/dsda-doom master"
 rp_module_section="exp"
-rp_module_flags="sdl2"
+rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
 
 function depends_dsda-doom() {
     local depends=(cmake libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libogg-dev libmad0-dev libvorbis-dev libzip-dev zlib1g-dev zipcmp zipmerge ziptool)
