@@ -479,6 +479,8 @@ function get_platform() {
                         *rk3588*)
                             __platform="rk3588"
                             ;;
+                        *s905x-cc*
+                            __platform="lepotato"
                     esac
                 elif [[ -e "/sys/devices/soc0/family" ]]; then
                     case "$(tr -d '\0' < /sys/devices/soc0/family)" in
@@ -701,3 +703,17 @@ function platform_vero4k() {
     __default_cflags="-I/opt/vero3/include -L/opt/vero3/lib"
     __platform_flags+=(mali gles)
 }
+
+function platform_lepotato() {
+    cpu_armv8 "cortex-a53"
+    __platform_flags="arm mali450 s905"
+
+    # Set specific compiler optimizations if needed
+    __default_cflags="-march=armv8-a -mtune=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard"
+
+    # Set Mali GPU support for RetroPie
+    __gpu_renderer="mali450"
+
+    # Audio and input configuration
+    __audio_driver="alsa"
+    __input_device="event"
