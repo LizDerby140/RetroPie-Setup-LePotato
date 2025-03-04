@@ -15,7 +15,7 @@ rp_module_help="Copy your ScummVM games to $romdir/scummvm"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/scummvm/scummvm/master/COPYING"
 rp_module_repo="git https://github.com/scummvm/scummvm.git v2.9.0"
 rp_module_section="opt"
-rp_module_flags="sdl2"
+rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
 
 function depends_scummvm() {
     local depends=(
