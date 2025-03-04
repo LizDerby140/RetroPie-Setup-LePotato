@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable
 rp_module_licence="GPL2 https://raw.githubusercontent.com/hrydgard/ppsspp/master/LICENSE.TXT"
 rp_module_repo="git https://github.com/hrydgard/ppsspp.git :_get_release_ppsspp"
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function _get_release_ppsspp() {
     local tagged_version="v1.16.6"
