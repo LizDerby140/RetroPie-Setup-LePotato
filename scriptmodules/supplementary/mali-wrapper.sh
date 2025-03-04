@@ -2,7 +2,7 @@
 
 rp_module_id="mali-wrapper"
 rp_module_desc="Mali-450 wrapper for launching emulators with correct ENV"
-rp_module_section="config"
+rp_module_section="exp"
 
 function install_mali-wrapper() {
     # Create wrapper script
