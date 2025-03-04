@@ -425,7 +425,7 @@ function get_rpi_model() {
     fi
 }
 function get_platform() {
-    if grep -q "Libre Computer Board AML-S905X-CC" /proc/device-tree/model 2>/dev/null; then
+    if grep -q "Libre Computer AML-S905X-CC" /proc/device-tree/model 2>/dev/null; then
         __platform="lepotato"
         
         return
