@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .sna .szx .z80 .tap .tzx .gz .udi .mgt .img .trd
 rp_module_licence="GPL3 https://raw.githubusercontent.com/rastersoft/fbzx/master/COPYING"
 rp_module_repo="git https://github.com/rastersoft/fbzx :_get_branch_fbzx"
 rp_module_section="opt"
-rp_module_flags="sdl1"
+rp_module_flags="sdl1 lepotato 64bit aarch64 arm mali"
 
 function _get_branch_fbzx() {
     local branch
