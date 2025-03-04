@@ -2,7 +2,7 @@
 
 rp_module_id="s905x-modules"
 rp_module_desc="S905X kernel modules and optimization"
-rp_module_section="config"
+rp_module_section="exp"
 rp_module_flags="!x86 !rpi"
 
 function install_s905x-modules() {
