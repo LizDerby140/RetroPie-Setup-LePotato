@@ -2,7 +2,7 @@
 
 rp_module_id="lepotato-test"
 rp_module_desc="Test Le Potato S905X and Mali-450 configuration"
-rp_module_section="config"
+rp_module_section="exp"
 rp_module_flags="!x86 !rpi"
 
 function configure_lepotato-test() {
