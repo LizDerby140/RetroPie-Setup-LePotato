@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .ml\n\nCopy your moonlight launch configurations
 rp_module_licence="GPL3 https://raw.githubusercontent.com/irtimmer/moonlight-embedded/master/LICENSE"
 rp_module_repo="git https://github.com/irtimmer/moonlight-embedded.git master"
 rp_module_section="exp"
-rp_module_flags="!all arm"
+rp_module_flags="!all lepotato 64bit aarch64 arm mali"
 
 function _scriptmodule_cfg_file_moonlight() {
     echo "$configdir/all/moonlight/scriptmodule.cfg"
