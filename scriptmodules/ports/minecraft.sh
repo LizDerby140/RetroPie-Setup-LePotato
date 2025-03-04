@@ -13,7 +13,7 @@ rp_module_id="minecraft"
 rp_module_desc="Minecraft - Pi Edition"
 rp_module_licence="PROP"
 rp_module_section="exp"
-rp_module_flags="!all videocore lepotato"
+rp_module_flags="!all videocore lepotato 64bit aarch64 arm mali"
 
 function depends_minecraft() {
     getDepends xorg matchbox-window-manager
