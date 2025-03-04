@@ -479,7 +479,7 @@ function get_platform() {
                         *rk3588*)
                             __platform="rk3588"
                             ;;
-                        *s905x-cc*
+                        *s905x-cc*)
                             __platform="lepotato"
                             ;;
                     esac
