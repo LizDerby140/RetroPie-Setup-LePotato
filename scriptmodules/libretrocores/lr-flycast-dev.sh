@@ -15,7 +15,7 @@ rp_module_help="Dreamcast ROM Extensions: .cdi .gdi .chd .m3u, Naomi/Atomiswave 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/flyinghead/flycast/master/LICENSE"
 rp_module_repo="git https://github.com/flyinghead/flycast.git master"
 rp_module_section="exp"
-rp_module_flags="!armv6 !videocore !:\$__gcc_version:-lt:9"
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_lr-flycast-dev() {
     local depends=(zlib1g-dev libgl-dev cmake)
