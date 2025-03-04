@@ -707,5 +707,5 @@ function platform_vero4k() {
 
 function platform_lepotato() {
     cpu_armv8 "cortex-a53"
-    __platform_flags+=(arm mali)
+    __platform_flags+=(arm mali neon gles gles2)
 }
