@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .daphne\n\nCopy your Daphne roms to $romdir/daphn
 rp_module_licence="GPL3 https://raw.githubusercontent.com/DirtBagXon/hypseus-singe/master/LICENSE"
 rp_module_repo="git https://github.com/DirtBagXon/hypseus-singe.git RetroPie"
 rp_module_section="exp"
-rp_module_flags="sdl2"
+rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
 
 function depends_hypseus() {
     getDepends libvorbis-dev libogg-dev zlib1g-dev libzip-dev libmpeg2-4-dev libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev cmake
