@@ -15,7 +15,7 @@ rp_module_help="Copy custom game levels (.dat) to $romdir/ports/jumpnbump"
 rp_module_licence="GPL2 https://gitlab.com/LibreGames/jumpnbump/raw/master/COPYING"
 rp_module_repo="git https://gitlab.com/LibreGames/jumpnbump.git master"
 rp_module_section="exp"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_jumpnbump() {
     getDepends libsdl2-dev libsdl2-net-dev libsdl2-mixer-dev libbz2-dev zlib1g-dev
