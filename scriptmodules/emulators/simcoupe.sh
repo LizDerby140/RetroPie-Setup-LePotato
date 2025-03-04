@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .dsk .mgt .sbt .sad\n\nCopy your SAM Coupe games
 rp_module_licence="GPL2 https://raw.githubusercontent.com/simonowen/simcoupe/master/License.txt"
 rp_module_repo="git https://github.com/simonowen/simcoupe.git :_get_branch_simcoupe"
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function _get_branch_simcoupe() {
     local branch="main"
