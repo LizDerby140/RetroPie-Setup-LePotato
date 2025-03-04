@@ -14,7 +14,7 @@ rp_module_desc="SHARP X68000 Emulator"
 rp_module_help="You need to copy a X68000 bios file (iplrom30.dat, iplromco.dat, iplrom.dat, or iplromxv.dat), and the font file (cgrom.dat or cgrom.tmp) to $biosdir/keropi. Use F12 to access the in emulator menu."
 rp_module_repo="git https://github.com/TurtleBazooka/px68k.git master"
 rp_module_section="exp"
-rp_module_flags="sdl2"
+rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
 
 function depends_px68k() {
     local depends=(cmake libsdl2-dev)
