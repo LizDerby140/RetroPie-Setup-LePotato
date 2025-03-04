@@ -479,6 +479,12 @@ function get_platform() {
                         *rk3588*)
                             __platform="rk3588"
                             ;;
+                        *)
+                            if grep -q "Libre Computer Board AML-S905X-CC" /proc/device-tree/model 2>/dev/null; then
+                                __platform="lepotato"
+                                return
+                            fi
+    fi
                     esac
                 elif [[ -e "/sys/devices/soc0/family" ]]; then
                     case "$(tr -d '\0' < /sys/devices/soc0/family)" in
@@ -700,4 +706,15 @@ function platform_vero4k() {
     cpu_armv7 "cortex-a7"
     __default_cflags="-I/opt/vero3/include -L/opt/vero3/lib"
     __platform_flags+=(mali gles)
+}
+
+function platform_lepotato() {
+    cpu_armv8 "cortex-a53"
+    __platform_flags="aarch64 mali"
+    __default_cflags="-O2 -march=armv8-a+crc -mtune=cortex-a53"
+    __platform_flags+= "64bit"
+    
+    # Mali GPU specifics
+    __has_mali=1
+    __mali_device="/dev/mali"
 }
