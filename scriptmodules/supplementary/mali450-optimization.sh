@@ -2,7 +2,7 @@
 
 rp_module_id="mali450-optimization"
 rp_module_desc="Optimization tweaks for Mali-450 MP2 GPU"
-rp_module_section="config"
+rp_module_section="exp"
 rp_module_flags="!x86 !rpi"
 
 function install_mali450-optimization() {
