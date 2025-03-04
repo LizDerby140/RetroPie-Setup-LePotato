@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .bin .smc .sfc .fig .swc .mgd .zip\n\nCopy your 
 rp_module_licence="NONCOM https://raw.githubusercontent.com/RetroPie/snes9x-rpi/master/snes9x.h"
 rp_module_repo="git https://github.com/RetroPie/snes9x-rpi.git retropie"
 rp_module_section="opt"
-rp_module_flags="sdl1 !all videocore"
+rp_module_flags="sdl1 !all videocore lepotato 64bit aarch64 arm mali"
 
 function depends_snes9x() {
     getDepends libsdl1.2-dev libboost-thread-dev libboost-system-dev libsdl-ttf2.0-dev libasound2-dev
