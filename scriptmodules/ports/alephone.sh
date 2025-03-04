@@ -15,7 +15,7 @@ rp_module_help="To get the games running on the Raspberry Pi/Odroid, make sure t
 rp_module_licence="GPL3 https://raw.githubusercontent.com/Aleph-One-Marathon/alephone/master/COPYING"
 rp_module_repo="git https://github.com/Aleph-One-Marathon/alephone.git :_get_branch_alephone"
 rp_module_section="opt"
-rp_module_flags="!mali"
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function _get_branch_alephone() {
     local branch="release-20150620"
