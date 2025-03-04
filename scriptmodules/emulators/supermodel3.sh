@@ -15,7 +15,7 @@ rp_module_help="Copy your Sega Model 3 roms to $romdir/arcade"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/DirtBagXon/model3emu-code-sinden/main/Docs/LICENSE.txt"
 rp_module_repo="git https://github.com/DirtBagXon/model3emu-code-sinden.git :_get_branch_supermodel3"
 rp_module_section="exp"
-rp_module_flags="all !armv6 !armv7"
+rp_module_flags="all lepotato 64bit aarch64 arm mali"
 
 function _get_branch_supermodel3() {
     if isPlatform "x86"; then
