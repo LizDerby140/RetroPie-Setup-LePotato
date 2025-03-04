@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .dsk \n\nCopy your Macintosh Plus disks to $romd
 rp_module_licence="GPL2 https://raw.githubusercontent.com/vanfanel/minivmac_sdl2/master/COPYING.txt"
 rp_module_repo="git https://github.com/vanfanel/minivmac_sdl2.git master"
 rp_module_section="exp"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_minivmac() {
     getDepends libsdl2-dev
