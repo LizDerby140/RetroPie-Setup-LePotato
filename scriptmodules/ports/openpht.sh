@@ -13,7 +13,7 @@ rp_module_id="openpht"
 rp_module_desc="OpenPHT is a community driven fork of Plex Home Theater"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/RasPlex/OpenPHT/openpht-1.7/LICENSE.GPL"
 rp_module_section="exp"
-rp_module_flags="!arm"
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_openpht() {
     getDepends pulseaudio-utils
