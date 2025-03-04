@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: *.fd, *.sap, *.k7, *.m5, *.m7, *.rom\n\nAdd your
 rp_module_licence="GPL3 https://raw.githubusercontent.com/Zlika/theodore/master/LICENSE"
 rp_module_repo="git https://github.com/Zlika/theodore master"
 rp_module_section="exp"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function sources_lr-theodore() {
     gitPullOrClone
