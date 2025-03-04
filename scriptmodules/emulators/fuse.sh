@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .sna .szx .z80 .tap .tzx .gz .udi .mgt .img .trd
 rp_module_licence="GPL2 https://sourceforge.net/p/fuse-emulator/fuse/ci/master/tree/COPYING"
 rp_module_repo="file $__archive_url/fuse-1.5.7.tar.gz"
 rp_module_section="opt"
-rp_module_flags="sdl1 !mali"
+rp_module_flags="sdl1 lepotato 64bit aarch64 arm mali"
 
 function depends_fuse() {
     getDepends libsdl1.2-dev libpng-dev zlib1g-dev libbz2-dev libaudiofile-dev bison flex
