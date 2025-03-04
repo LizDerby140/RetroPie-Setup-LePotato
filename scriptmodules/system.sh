@@ -425,6 +425,11 @@ function get_rpi_model() {
     fi
 }
 function get_platform() {
+    if grep -q "Libre Computer Board AML-S905X-CC" /proc/device-tree/model 2>/dev/null; then
+        __platform="lepotato"
+        
+        return
+    fi
     local architecture="$(uname --machine)"
     if [[ -z "$__platform" ]]; then
         case "$(sed -n '/^Hardware/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo)" in
@@ -452,10 +457,6 @@ function get_platform() {
                 ;;
             "Allwinner sun8i Family")
                 __platform="armv7-mali"
-                ;;
-            "Libre Computer Board AML-S905X-CC")
-                __platform="lepotato"
-                platform_lepotato_autoinstall
                 ;;
             *)
                 # jetsons can be identified by device tree or soc0/family (depending on the L4T version used)
