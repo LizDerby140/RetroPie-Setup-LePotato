@@ -14,7 +14,7 @@ rp_module_desc="Redream Dreamcast emulator"
 rp_module_help="ROM Extensions: .cdi .cue .chd .gdi .iso\n\nCopy your Dreamcast roms to $romdir/dreamcast"
 rp_module_licence="PROP"
 rp_module_section="exp"
-rp_module_flags="noinstclean !all gles31 aarch64 x86_64"
+rp_module_flags="noinstclean !all gles31 lepotato 64bit aarch64 arm mali x86_64"
 
 function __binary_url_redream() {
     local platf="universal-raspberry"
