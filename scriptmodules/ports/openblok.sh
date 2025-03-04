@@ -14,7 +14,7 @@ rp_module_desc="OpenBlok: A Block Dropping Game"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/mmatyas/openblok/master/LICENSE.md"
 rp_module_repo="git https://github.com/mmatyas/openblok.git master"
 rp_module_section="exp"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_openblok() {
     getDepends cmake libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev gettext
