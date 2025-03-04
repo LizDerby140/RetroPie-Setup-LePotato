@@ -15,7 +15,7 @@ rp_module_help="Previously called lr-pocketsnes\n\nROM Extensions: .bin .smc .sf
 rp_module_licence="NONCOM https://raw.githubusercontent.com/libretro/snes9x2002/master/src/copyright.h"
 rp_module_repo="git https://github.com/libretro/snes9x2002.git master"
 rp_module_section="opt armv6=main"
-rp_module_flags="!all arm lepotato"
+rp_module_flags="!all arm mali aarch64 64bit lepotato"
 
 function _update_hook_lr-snes9x2002() {
     # move from old location and update emulators.cfg
