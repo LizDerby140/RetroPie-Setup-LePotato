@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .zip\n\nCopy your MAME roms to either $romdir/mam
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/mame/master/COPYING"
 rp_module_repo="git https://github.com/libretro/mame.git :_get_version_lr-mame"
 rp_module_section="exp"
-rp_module_flags="!:\$__gcc_version:-lt:7"
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function _get_version_lr-mame() {
     if compareVersions "$(gcc -dumpfullversion)" lt 10.3.0; then
