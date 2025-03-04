@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .bin .cas .wav .bas .asc .dmk .jvc .os9 .dsk .vd
 rp_module_licence="GPL3 http://www.6809.org.uk/xroar/"
 rp_module_repo="git http://www.6809.org.uk/git/xroar.git fixes-1.8"
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_xroar() {
     local depends=(libsdl2-dev automake libasound2-dev libsndfile1-dev texinfo zlib1g-dev)
