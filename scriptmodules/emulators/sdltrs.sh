@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .dsk\n\nCopy your TRS-80 games to $romdir/trs-80\
 rp_module_section="exp"
 rp_module_licence="BSD https://gitlab.com/jengun/sdltrs/-/raw/master/LICENSE"
 rp_module_repo="git https://gitlab.com/jengun/sdltrs.git sdl2"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_sdltrs() {
     getDepends libsdl2-dev libreadline-dev
