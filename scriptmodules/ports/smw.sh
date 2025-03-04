@@ -14,7 +14,7 @@ rp_module_desc="Super Mario War - A fan-made multiplayer Super Mario Bros. style
 rp_module_licence="GPL2 https://smwstuff.net"
 rp_module_repo="git https://github.com/mmatyas/supermariowar master"
 rp_module_section="opt"
-rp_module_flags="sdl2"
+rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
 
 function depends_smw() {
     getDepends cmake libsdl2-dev libsdl2-mixer-dev libsdl2-image-dev zlib1g-dev
