@@ -14,7 +14,7 @@ rp_module_desc="Open Tyrian - port of the DOS shoot-em-up Tyrian"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/opentyrian/opentyrian/master/COPYING"
 rp_module_repo="git https://github.com/opentyrian/opentyrian.git master"
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="lepotato 64bit aarch64 arm mali"
 
 function depends_opentyrian() {
     getDepends libsdl2-dev libsdl2-net-dev
