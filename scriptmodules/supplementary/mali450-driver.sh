@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 rp_module_id="mali450-driver"
 rp_module_desc="Mali-450 MP2 GPU driver setup"
-rp_module_section="config"
+rp_module_section="exp"
 rp_module_flags="!x86 !rpi"
 
 function depends_mali450-driver() {
