@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .a52 .bas .bin .car .xex .atr .xfd .dcm .atr.gz 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/atari800/atari800/master/COPYING"
 rp_module_repo="git https://github.com/atari800/atari800.git ATARI800_5_2_0"
 rp_module_section="opt"
-rp_module_flags="sdl1"
+rp_module_flags="sdl1 lepotato 64bit aarch64 arm mali"
 
 function depends_atari800() {
     local depends=(libsdl1.2-dev autoconf automake zlib1g-dev libpng-dev)
