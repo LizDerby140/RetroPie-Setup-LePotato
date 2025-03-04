@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .z64 .n64 .v64\n\nCopy your N64 roms to $romdir/
 rp_module_licence="GPL2 https://raw.githubusercontent.com/mupen64plus/mupen64plus-core/master/LICENSES"
 rp_module_repo=":_pkg_info_mupen64plus"
 rp_module_section="main"
-rp_module_flags="sdl2 nodistcc"
+rp_module_flags="sdl2 nodistcc lepotato"
 
 function depends_mupen64plus() {
     local depends=(cmake libsamplerate0-dev libspeexdsp-dev libsdl2-dev libpng-dev libfreetype6-dev fonts-freefont-ttf libboost-filesystem-dev libglu1-mesa-dev)
@@ -24,6 +24,7 @@ function depends_mupen64plus() {
     isPlatform "gl" && depends+=(libglew-dev libglu1-mesa-dev)
     isPlatform "x86" && depends+=(nasm)
     isPlatform "vero4k" && depends+=(vero3-userland-dev-osmc)
+    
     # was a vero4k only line - I think it's not needed or can use a smaller subset of boost
     isPlatform "osmc" && depends+=(libboost-all-dev)
     getDepends "${depends[@]}"
@@ -138,18 +139,12 @@ function _pkg_info_mupen64plus() {
 
 function sources_mupen64plus() {
 
-gitPullOrClone "$md_build/mupen64plus-core" https://github.com/mupen64plus/mupen64plus-core.git 
-gitPullOrClone "$md_build/mupen64plus-ui-console" https://github.com/mupen64plus/mupen64plus-ui-console.git 
-gitPullOrClone "$md_build/mupen64plus-audio-sdl" https://github.com/mupen64plus/mupen64plus-audio-sdl.git 
-gitPullOrClone "$md_build/mupen64plus-input-sdl" https://github.com/mupen64plus/mupen64plus-input-sdl.git 
-
-# For Le Potato, prioritize software rendering and GLideN64 
-gitPullOrClone "$md_build/mupen64plus-video-gliden64" https://github.com/gonetz/GLideN64.git 
-gitPullOrClone "$md_build/mupen64plus-video-rice" https://github.com/mupen64plus/mupen64plus-video-rice.git 
-gitPullOrClone "$md_build/mupen64plus-video-z64" https://github.com/mupen64plus/mupen64plus-video-z64.git 
-gitPullOrClone "$md_build/mupen64plus-rsp-hle" https://github.com/mupen64plus/mupen64plus-rsp-hle.git 
-gitPullOrClone "$md_build/mupen64plus-rsp-cxd4" https://github.com/mupen64plus/mupen64plus-rsp-cxd4.git
-    )
+    local commit
+    local repo
+    while read repo; do
+        repo=($repo)
+        gitPullOrClone "$md_build/${repo[1]}" https://github.com/${repo[0]}/${repo[1]} ${repo[2]} ${repo[3]}
+    done < <(_get_repos_mupen64plus)
 
     if isPlatform "videocore"; then
         # workaround for shader cache crash issue on Raspbian stretch. See: https://github.com/gonetz/GLideN64/issues/1665
