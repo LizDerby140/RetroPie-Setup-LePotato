@@ -13,7 +13,7 @@ rp_module_id="splashscreen"
 rp_module_desc="Configure Splashscreen"
 rp_module_section="main"
 rp_module_repo="git https://github.com/RetroPie/retropie-splashscreens.git master"
-rp_module_flags="noinstclean !all rpi !osmc !xbian"
+rp_module_flags="noinstclean !all rpi lepotato"
 
 function _update_hook_splashscreen() {
     # make sure splashscreen is always up to date if updating just RetroPie-Setup
