@@ -559,7 +559,7 @@ function cpu_armv8() {
         __default_cpu_flags+="  -mfpu=neon-fp-armv8"
         __platform_flags+=(arm armv8 neon)
     else
-        __platform_flags+=(arm armv8 64bit)
+        __platform_flags+=(arm armv8 neon)
     fi
     __qemu_cpu="$cpu"
 }
@@ -707,5 +707,5 @@ function platform_vero4k() {
 
 function platform_lepotato() {
     cpu_armv8 "cortex-a53"
-    __platform_flags+=(armv8 neon gles gles2 sdl2 opengl drm kms cpu_neon)
+    __platform_flags+=(gles gles2 sdl2 gl drm kms)
 }
