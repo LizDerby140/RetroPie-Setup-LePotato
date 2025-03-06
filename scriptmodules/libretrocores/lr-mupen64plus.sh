@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .z64 .n64 .v64\n\nCopy your N64 roms to $romdir/
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/mupen64plus-libretro/master/LICENSE"
 rp_module_repo="git https://github.com/RetroPie/mupen64plus-libretro.git master"
 rp_module_section="main"
-rp_module_flags=""
+rp_module_flags="!aarch64"
 
 function _update_hook_lr-mupen64plus() {
     # retroarch renamed lr-mupen64plus to lr-parallel-n64 and
@@ -52,11 +52,7 @@ function sources_lr-mupen64plus() {
 }
 
 function build_lr-mupen64plus() {
-    if isPlatform "64bit"; then
-        rpSwap on 2048
-    else
-        rpSwap on 750
-    fi
+    rpSwap on 750
     local params=()
     if isPlatform "videocore"; then
         params+=(platform="$__platform")
