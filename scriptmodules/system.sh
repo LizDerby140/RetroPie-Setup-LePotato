@@ -559,7 +559,7 @@ function cpu_armv8() {
         __default_cpu_flags+="  -mfpu=neon-fp-armv8"
         __platform_flags+=(arm armv8 neon)
     else
-        __platform_flags+=(arm64)
+        __platform_flags+=(aarch64)
     fi
     __qemu_cpu="$cpu"
 }
