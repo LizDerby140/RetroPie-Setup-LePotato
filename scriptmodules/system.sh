@@ -707,6 +707,6 @@ function platform_vero4k() {
 
 function platform_lepotato() {
     cpu_armv8 "cortex-a53"
-    __platform_flags+=(arm mesa gles kms drm)
+    __platform_flags+=(arm mali gles kms drm)
     __default_cflags="-O2 -march=armv8-a+crc+crypto -mtune=cortex-a53"
 }
