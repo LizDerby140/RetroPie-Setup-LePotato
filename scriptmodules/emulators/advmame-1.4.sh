@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .zip\n\nCopy your AdvanceMAME roms to either $rom
 rp_module_licence="GPL2 https://raw.githubusercontent.com/amadvance/advancemame/master/COPYING"
 rp_module_repo="file $__archive_url/advancemame-1.4.tar.gz"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_advmame-1.4() {
     local depends=(libsdl1.2-dev)
