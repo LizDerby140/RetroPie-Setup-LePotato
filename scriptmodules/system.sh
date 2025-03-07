@@ -559,7 +559,7 @@ function cpu_armv8() {
         __default_cpu_flags+="  -mfpu=neon-fp-armv8"
         __platform_flags+=(arm armv8 neon)
     else
-        __platform_flags+=(arm64)
+        __platform_flags+=(aarch64)
     fi
     __qemu_cpu="$cpu"
 }
@@ -707,6 +707,5 @@ function platform_vero4k() {
 
 function platform_lepotato() {
     cpu_armv8 "cortex-a53"
-    __platform_flags+=(arm armv8 neon mesa gles x11)
-    __default_cflags="-O2 -march=armv8-a+crc+crypto -mtune=cortex-a53"
+    __platform_flags+=(arm mali odroid)
 }
