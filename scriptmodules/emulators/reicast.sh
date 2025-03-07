@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .cdi .gdi\n\nCopy your Dreamcast roms to $romdir
 rp_module_licence="GPL2 https://raw.githubusercontent.com/reicast/reicast-emulator/master/LICENSE"
 rp_module_repo="git https://github.com/reicast/reicast-emulator.git master"
 rp_module_section="opt"
-rp_module_flags="!armv6 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_reicast() {
     local depends=(libsdl2-dev python3-dev python3-pip alsa-oss python3-setuptools libevdev-dev libasound2-dev libudev-dev)
