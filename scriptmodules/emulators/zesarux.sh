@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .sna .szx .z80 .tap .tzx .gz .udi .mgt .img .trd
 rp_module_licence="GPL3 https://raw.githubusercontent.com/chernandezba/zesarux/master/src/LICENSE"
 rp_module_repo="git https://github.com/chernandezba/zesarux.git ZEsarUX-12.0"
 rp_module_section="opt"
-rp_module_flags="sdl2 sdl1-videocore lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_zesarux() {
     local depends=(libssl-dev libpthread-stubs0-dev libasound2-dev)
