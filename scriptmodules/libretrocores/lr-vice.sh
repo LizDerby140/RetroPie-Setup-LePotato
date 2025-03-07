@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .cmd .crt .d64 .d71 .d80 .d81 .g64 .m3u .prg .t6
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/vice-libretro/master/vice/COPYING"
 rp_module_repo="git https://github.com/libretro/vice-libretro.git master"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_targets_lr-vice() {
     echo x64 x64dtv x64sc x128 xpet xplus4 xvic
