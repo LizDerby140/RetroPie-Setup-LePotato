@@ -15,7 +15,7 @@ rp_module_help="Install the xrick data.zip to $romdir/ports/xrick/data.zip"
 rp_module_licence="GPL https://raw.githubusercontent.com/RetroPie/xrick/master/README"
 rp_module_repo="git https://github.com/RetroPie/xrick.git master"
 rp_module_section="opt"
-rp_module_flags="sdl1 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_xrick() {
     getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev zlib1g
