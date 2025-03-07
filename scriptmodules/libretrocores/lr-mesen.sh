@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .nes .fds .unf .unif .zip\n\nCopy your NES roms 
 rp_module_licence="GPL3 https://raw.githubusercontent.com/sourmesen/mesen/master/LICENSE"
 rp_module_repo="git https://github.com/libretro/Mesen.git master"
 rp_module_section="exp"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function sources_lr-mesen() {
     gitPullOrClone
