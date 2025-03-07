@@ -14,7 +14,7 @@ rp_module_desc="DXX-Rebirth (Descent & Descent 2) source port"
 rp_module_licence="NONCOM https://raw.githubusercontent.com/dxx-rebirth/dxx-rebirth/master/COPYING.txt"
 rp_module_repo="git https://github.com/dxx-rebirth/dxx-rebirth master :_get_commit_dxx-rebirth"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_commit_dxx-rebirth() {
     local commit=""
