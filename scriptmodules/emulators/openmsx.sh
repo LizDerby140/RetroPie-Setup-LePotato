@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .cas .rom .mx1 .mx2 .col .dsk .zip\n\nCopy your 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/openMSX/openMSX/master/doc/GPL.txt"
 rp_module_repo="git https://github.com/openMSX/openMSX.git RELEASE_19_1 :_get_commit_openmsx"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_commit_openmsx() {
     local commit
