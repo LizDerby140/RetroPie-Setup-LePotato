@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .adf\n\nCopy your Amiga games to $romdir/amiga\n\
 rp_module_licence="GPL2 https://raw.githubusercontent.com/RetroPie/uae4all2/retropie/copying"
 rp_module_repo="git https://github.com/RetroPie/uae4all2.git retropie"
 rp_module_section="opt"
-rp_module_flags="sdl1 !all videocore lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_uae4all() {
     getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev
