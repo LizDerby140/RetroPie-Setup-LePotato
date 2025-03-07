@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .bat .com .exe .sh .conf\n\nCopy your DOS games 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/dosbox-staging/dosbox-staging/master/COPYING"
 rp_module_repo="git https://github.com/dosbox-staging/dosbox-staging.git :_get_branch_dosbox-staging"
 rp_module_section="opt"
-rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_branch_dosbox-staging() {
     # use 0.80.1 for VideoCore devices, 0.81 and later require OpenGL
