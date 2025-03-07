@@ -15,7 +15,7 @@ rp_module_help="Copy your Love games to $romdir/love"
 rp_module_licence="ZLIB https://raw.githubusercontent.com/love2d/love/0.10.2/license.txt"
 rp_module_repo="git https://github.com/love2d/love 0.10.2"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_love-0.10.2() {
     depends_love
