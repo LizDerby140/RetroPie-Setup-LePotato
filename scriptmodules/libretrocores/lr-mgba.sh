@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .gb .gbc .gba .zip\n\nCopy your Game Boy roms to
 rp_module_licence="MPL2 https://raw.githubusercontent.com/libretro/mgba/master/LICENSE"
 rp_module_repo="git https://github.com/libretro/mgba.git master"
 rp_module_section="main"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function sources_lr-mgba() {
     gitPullOrClone
