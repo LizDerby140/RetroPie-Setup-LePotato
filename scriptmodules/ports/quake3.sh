@@ -14,7 +14,7 @@ rp_module_desc="Quake 3"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/raspberrypi/quake3/master/COPYING.txt"
 rp_module_repo="git https://github.com/raspberrypi/quake3.git master"
 rp_module_section="opt"
-rp_module_flags="!all videocore lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_quake3() {
     getDepends libsdl1.2-dev libraspberrypi-dev
