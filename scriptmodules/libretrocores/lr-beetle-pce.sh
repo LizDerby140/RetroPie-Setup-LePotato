@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .7z .ccd .chd .cue .pce .sgx\n\nCopy your PC Eng
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/beetle-pce-libretro/master/COPYING"
 rp_module_repo="git https://github.com/libretro/beetle-pce-libretro.git master"
 rp_module_section="opt"
-rp_module_flags="!armv6"
+rp_module_flags=""
 
 function sources_lr-beetle-pce() {
     gitPullOrClone
