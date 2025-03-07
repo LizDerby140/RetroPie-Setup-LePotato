@@ -14,7 +14,7 @@ rp_module_desc="Wolf4SDL - port of Wolfenstein 3D / Spear of Destiny engine"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/AryanWolf3D/Wolf4SDL/master/license-gpl.txt"
 rp_module_repo="git https://github.com/AryanWolf3D/Wolf4SDL.git master"
 rp_module_section="opt"
-rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_wolf4sdl() {
     getDepends libsdl2-dev libsdl2-mixer-dev rename
