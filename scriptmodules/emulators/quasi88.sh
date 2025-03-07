@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .d88 .88d .cmt .t88\n\nCopy your pc88 games to t
 rp_module_repo="git https://github.com/winterheart/quasi88.git master"
 rp_module_licence="BSD https://raw.githubusercontent.com/winterheart/quasi88/master/LICENSE.txt"
 rp_module_section="exp"
-rp_module_flags="sdl2 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_quasi88() {
     getDepends cmake libsdl2-dev libfmt-dev libspdlog-dev
