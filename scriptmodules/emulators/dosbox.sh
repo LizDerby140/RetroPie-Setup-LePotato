@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .bat .com .exe .sh .conf\n\nCopy your DOS games 
 rp_module_licence="GPL2 https://sourceforge.net/p/dosbox/code-0/HEAD/tree/dosbox/trunk/COPYING"
 rp_module_repo="svn https://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk - 4252"
 rp_module_section="opt"
-rp_module_flags="sdl1 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_dosbox() {
     local depends=(libasound2-dev libpng-dev automake autoconf zlib1g-dev "$@")
