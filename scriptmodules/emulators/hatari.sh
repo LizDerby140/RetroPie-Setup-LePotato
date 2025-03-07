@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .st .stx .img .rom .raw .ipf .ctr .zip\n\nCopy y
 rp_module_licence="GPL2 https://raw.githubusercontent.com/hatari/hatari/master/gpl.txt"
 rp_module_repo="git https://github.com/hatari/hatari v2.4.1"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_hatari() {
     getDepends libsdl2-dev zlib1g-dev libpng-dev cmake libreadline-dev portaudio19-dev
