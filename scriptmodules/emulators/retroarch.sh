@@ -35,7 +35,6 @@ function depends_retroarch() {
 
 function sources_retroarch() {
     gitPullOrClone
-
 }
 
 function build_retroarch() {
