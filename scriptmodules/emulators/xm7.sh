@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .d77 .t77 .d88 .2d \n\nCopy your FM-7 games to t
 rp_module_licence="NONCOM https://raw.githubusercontent.com/nakatamaho/XM7-for-SDL/master/Doc/mess/license.txt"
 rp_module_repo="git https://github.com/nakatamaho/XM7-for-SDL.git master"
 rp_module_section="exp"
-rp_module_flags="lepotato 64bit aarch64 arm mali !kms"
+rp_module_flags=""
 
 function depends_xm7() {
     getDepends cmake libjpeg-dev libsdl1.2-dev libsdl-mixer1.2-dev libtool libpng-dev libuim-dev libfreetype6-dev libfontconfig1-dev gawk fonts-takao libxinerama-dev libx11-dev imagemagick
