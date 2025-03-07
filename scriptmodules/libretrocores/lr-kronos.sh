@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .iso .cue .zip .ccd .mds\n\nCopy your Sega Satur
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/yabause/kronos/yabause/COPYING"
 rp_module_repo="git https://github.com/libretro/yabause.git kronos"
 rp_module_section="exp"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function sources_lr-kronos() {
     gitPullOrClone
