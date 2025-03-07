@@ -15,7 +15,7 @@ rp_module_help="Previously named lr-reicast then lr-beetle-dc\n\nDreamcast ROM E
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/flycast/master/LICENSE"
 rp_module_repo="git https://github.com/libretro/flycast.git master"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_lr-flycast() {
     local depends=(zlib1g-dev)
