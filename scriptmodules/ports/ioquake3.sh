@@ -14,7 +14,7 @@ rp_module_desc="Quake 3 source port"
 rp_module_licence="GPL2 https://github.com/ioquake/ioq3/blob/master/COPYING.txt"
 rp_module_repo="git https://github.com/ioquake/ioq3 main"
 rp_module_section="opt"
-rp_module_flags="!videocore lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_ioquake3() {
     getDepends libsdl2-dev libgl1-mesa-dev
