@@ -36,10 +36,6 @@ function depends_retroarch() {
 function sources_retroarch() {
     gitPullOrClone
 
-    if [[ "$__platform" == "lepotato" ]]; then
-        # Use specific build options for Mali GPU
-        applyPatch "$md_data/01_lepotato_mali_support.diff"
-    fi
 }
 
 function build_retroarch() {
