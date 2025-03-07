@@ -14,7 +14,7 @@ rp_module_desc="lzdoom - DOOM source port (legacy version of GZDoom)"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/drfrag666/gzdoom/master/LICENSE"
 rp_module_repo="git https://github.com/drfrag666/gzdoom 3.88b"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_lzdoom() {
     local depends=(
