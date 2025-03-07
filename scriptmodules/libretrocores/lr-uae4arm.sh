@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .adf .uae .lha .ipf .iso\n\nCopy your Amigas gam
 rp_module_licence="GPL2"
 rp_module_repo="git https://github.com/Chips-fr/uae4arm-rpi.git master"
 rp_module_section="exp"
-rp_module_flags="!all lepotato arm mali aarch64 64bit"
+rp_module_flags=""
 
 function depends_lr-uae4arm() {
     getDepends zlib1g-dev libmpg123-dev libflac-dev
