@@ -14,7 +14,7 @@ rp_module_desc="GZDoom is a feature centric port for all Doom engine games, base
 rp_module_licence="GPL3 https://raw.githubusercontent.com/ZDoom/gzdoom/master/LICENSE"
 rp_module_repo="git https://github.com/ZDoom/gzdoom :_get_version_gzdoom"
 rp_module_section="opt"
-rp_module_flags="sdl2 !armv6 lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_version_gzdoom() {
     # default GZDoom version
