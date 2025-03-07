@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .a26 .bin .rom .zip .gz\n\nCopy your Atari 2600 
 rp_module_licence="GPL2 https://raw.githubusercontent.com/stella-emu/stella/master/License.txt"
 rp_module_repo="git https://github.com/stella-emu/stella.git :_get_version_stella"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function _get_version_stella() {
     if [[ "$__gcc_version" -lt 11 ]]; then
