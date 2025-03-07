@@ -14,7 +14,7 @@ rp_module_desc="Quake 1 engine - Darkplaces Quake port with GLES rendering"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/xonotic/darkplaces/master/COPYING"
 rp_module_repo="git https://github.com/xonotic/darkplaces.git div0-stable"
 rp_module_section="opt"
-rp_module_flags="lepotato 64bit aarch64 arm mali"
+rp_module_flags=""
 
 function depends_darkplaces-quake() {
     local depends=(libsdl2-dev libjpeg-dev)
