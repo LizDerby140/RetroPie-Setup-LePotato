@@ -9,7 +9,8 @@ rp_module_section="opt"
 rp_module_flags=""
 
 function depends_duckstation() {
-    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev
+    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev \
+               libgbm-dev libdrm-dev
 }
 
 function sources_duckstation() {
@@ -19,14 +20,14 @@ function sources_duckstation() {
 function build_duckstation() {
     mkdir -p build
     cd build
-    cmake ..
-    make
-    md_ret_require="$md_build/bin/duckstation-qt"
+    cmake -DPLATFORM_FLAGS="-D MESA -D GLES -D KMS -D DRM" ..
+    make -j$(nproc)
+    md_ret_require="$md_build/bin/duckstation-qt/duckstation-qt"
 }
 
 function install_duckstation() {
     md_ret_files=(
-        'bin/duckstation-qt'
+        'bin/duckstation-qt/duckstation-qt'
     )
 }
 
