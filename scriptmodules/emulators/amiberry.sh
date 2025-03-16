@@ -15,7 +15,7 @@ rp_module_help="ROM Extension: .adf .chd .ipf .lha .zip\n\nCopy your Amiga games
 rp_module_licence="GPL3 https://raw.githubusercontent.com/BlitterStudio/amiberry/master/LICENSE"
 rp_module_repo="git https://github.com/BlitterStudio/amiberry :_get_branch_amiberry"
 rp_module_section="opt"
-rp_module_flags="!all arm rpi3 rpi4 rpi5 x86"
+rp_module_flags=""
 
 function _update_hook_amiberry() {
     local rom
@@ -54,12 +54,14 @@ function _get_platform_amiberry() {
         platform="vero4k"
     elif isPlatform "x86"; then
         platform="x86-64"
+    elif isPlatform "aarch64"; then
+        platform="aarch64"
     fi
     echo "$platform"
 }
 
 function depends_amiberry() {
-    local depends=(cmake autoconf libpng-dev libmpeg2-4-dev zlib1g-dev libmpg123-dev libflac-dev libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libserialport-dev wget libportmidi-dev)
+    local depends=(cmake autoconf libpng-dev libmpeg2-4-dev zlib1g-dev libmpg123-dev libflac-dev libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libserialport-dev wget libportmidi-dev libgbm-dev libdrm-dev)
 
     isPlatform "dispmanx" && depends+=(libraspberrypi-dev)
     isPlatform "vero4k" && depends+=(vero3-userland-dev-osmc)
@@ -91,7 +93,7 @@ function build_amiberry() {
     make
     cp capsimg.so "$md_build/plugins"
     cd "$md_build"
-    make PLATFORM="$platform" CPUFLAGS="$__cpu_flags"
+    make PLATFORM="$platform" CPUFLAGS="$__cpu_flags" PLATFORM_FLAGS="-D MESA -D GLES -D KMS -D DRM"
     md_ret_require="$md_build/amiberry"
 }
 
