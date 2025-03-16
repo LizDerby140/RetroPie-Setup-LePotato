@@ -9,7 +9,8 @@ rp_module_section="opt"
 rp_module_flags=""
 
 function depends_melonds() {
-    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev libpcap-dev
+    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev libpcap-dev \
+               libgbm-dev libdrm-dev
 }
 
 function sources_melonds() {
@@ -19,7 +20,7 @@ function sources_melonds() {
 function build_melonds() {
     mkdir -p build
     cd build
-    cmake ..
+    cmake -DPLATFORM_FLAGS="-D MESA -D GLES -D KMS -D DRM" ..
     make
     md_ret_require="$md_build/melonDS"
 }
