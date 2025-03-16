@@ -8,74 +8,49 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 rp_module_id="minecraft"
-rp_module_desc="Minecraft - Pi Edition (with GL4ES)"
+rp_module_desc="Minecraft - Pi Edition (LePotato port)"
 rp_module_licence="PROP"
 rp_module_section="exp"
-rp_module_flags="!x86"
+rp_module_flags="!all mesa gles drm kms"
 
 function depends_minecraft() {
-    getDepends xorg matchbox-window-manager
-
-    # Check if GL4ES is installed
-    if [[ ! -d "$rootdir/opt/gl4es" && ! -f "/usr/local/lib/gl4es/libGL.so.1" ]]; then
-        printMsgs "dialog" "GL4ES is required but not installed. Please install GL4ES module first."
-        exit 1
-    fi
+    getDepends xorg matchbox-window-manager mesa-utils libgles2-mesa-dev
 }
 
 function install_bin_minecraft() {
-    # Download Minecraft Pi Edition since it's not in Armbian repos
+    [[ -f "$md_inst/minecraft-pi" ]] && rm -rf "$md_inst/"*
+    
+    # Since we can't use the Pi package directly, we need to get a compatible build
+    # or build from source for LePotato/Amlogic hardware
+    
+    # Create directory for Minecraft files
     mkdir -p "$md_inst"
-    wget -O "$md_inst/minecraft-pi.tar.gz" "https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/raw/master/minecraft-pi/minecraft-pi.tar.gz"
-    tar -xvf "$md_inst/minecraft-pi.tar.gz" -C "$md_inst"
-    rm "$md_inst/minecraft-pi.tar.gz"
     
-    # Fix permissions
-    chmod +x "$md_inst/minecraft-pi"
+    # Download MCPI-Reborn which has better compatibility with non-Pi hardware
+    gitPullOrClone "$md_inst/mcpi-reborn" "https://github.com/MCPI-Revival/minecraft-pi-reborn.git"
     
-    # Create GL4ES wrapper script
-    cat > "$md_inst/minecraft-gl4es.sh" << 'EOF'
+    # Build MCPI-Reborn
+    cd "$md_inst/mcpi-reborn"
+    apt-get update
+    getDepends cmake g++ libglfw3-dev
+    mkdir -p build
+    cd build
+    cmake ..
+    make -j$(nproc)
+    
+    # Copy the executable to our install directory
+    cp "$md_inst/mcpi-reborn/build/src/minecraft-pi-reborn/minecraft-pi" "$md_inst/"
+    
+    # Create a launcher script with appropriate environment variables for Mesa/GLES
+    cat > "$md_inst/minecraft-pi-launcher.sh" << _EOF_
 #!/bin/bash
-# GL4ES wrapper for Minecraft Pi Edition
-
-# GL4ES configuration
-export LIBGL_FB=1
-export LIBGL_ES=2
-export LIBGL_MIPMAP=1
-export LIBGL_VSYNC=1
-
-# Set up correct library paths
-if [ -f "/usr/local/lib/gl4es/libGL.so.1" ]; then
-    export LD_LIBRARY_PATH="/usr/local/lib/gl4es:$LD_LIBRARY_PATH"
-    export LD_PRELOAD="/usr/local/lib/gl4es/libGL.so.1"
-elif [ -d "/opt/retropie/opt/gl4es" ]; then
-    export LD_LIBRARY_PATH="/opt/retropie/opt/gl4es:$LD_LIBRARY_PATH"
-    export LD_PRELOAD="/opt/retropie/opt/gl4es/libGL.so.1"
-else
-    echo "GL4ES library not found!"
-    exit 1
-fi
-
-# Mesa compatibility
 export MESA_GL_VERSION_OVERRIDE=2.1
-
-# Make sure Minecraft uses our bundled libraries
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/retropie/ports/minecraft/lib/arm-linux-gnueabihf"
-
-# Launch Minecraft Pi
-cd /opt/retropie/ports/minecraft
-./minecraft-pi "$@"
-EOF
-    chmod +x "$md_inst/minecraft-gl4es.sh"
+export LIBGL_ALWAYS_SOFTWARE=1
+cd "$md_inst"
+./minecraft-pi
+_EOF_
     
-    # Create X session startup script
-    cat > "$md_inst/start-minecraft.sh" << 'EOF'
-#!/bin/bash
-xset -dpms s off s noblank
-matchbox-window-manager &
-/opt/retropie/ports/minecraft/minecraft-gl4es.sh
-EOF
-    chmod +x "$md_inst/start-minecraft.sh"
+    chmod +x "$md_inst/minecraft-pi-launcher.sh"
 }
 
 function remove_minecraft() {
@@ -83,5 +58,5 @@ function remove_minecraft() {
 }
 
 function configure_minecraft() {
-    addPort "$md_id" "minecraft" "Minecraft Pi (GL4ES)" "XINIT:/opt/retropie/ports/minecraft/start-minecraft.sh"
+    addPort "$md_id" "minecraft" "Minecraft" "XINIT-WM:$md_inst/minecraft-pi-launcher.sh"
 }
