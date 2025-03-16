@@ -9,7 +9,8 @@ rp_module_section="opt"
 rp_module_flags=""
 
 function depends_swanstation() {
-    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev
+    getDepends cmake gcc g++ libx11-dev libgl1-mesa-dev libevdev-dev libudev-dev \
+               libgbm-dev libdrm-dev
 }
 
 function sources_swanstation() {
@@ -19,7 +20,7 @@ function sources_swanstation() {
 function build_swanstation() {
     mkdir -p build
     cd build
-    cmake ..
+    cmake -DPLATFORM_FLAGS="-D MESA -D GLES -D KMS -D DRM" ..
     make
     md_ret_require="$md_build/swanstation-qt"
 }
