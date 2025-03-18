@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .gcm .iso .wbfs .ciso .gcz .rvz .wad .wbfs\n\nCo
 rp_module_licence="GPL2 https://raw.githubusercontent.com/dolphin-emu/dolphin/master/COPYING"
 rp_module_repo="git https://github.com/dolphin-emu/dolphin.git master :_get_commit_dolphin"
 rp_module_section="exp"
-rp_module_flags="!all !lepotato 64bit !:\$__gcc_version:-lt:8"
+rp_module_flags="!all"
 
 function _get_commit_dolphin() {
     local commit
