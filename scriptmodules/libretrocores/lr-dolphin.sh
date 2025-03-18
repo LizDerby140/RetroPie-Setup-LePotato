@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .gcm .iso .wbfs .ciso .gcz\n\nCopy your gamecube
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/dolphin/master/license.txt"
 rp_module_repo="git https://github.com/libretro/dolphin master"
 rp_module_section="exp"
-rp_module_flags="!all 64bit"
+rp_module_flags="!all !lepotato 64bit"
 
 function depends_lr-dolphin() {
     depends_dolphin
