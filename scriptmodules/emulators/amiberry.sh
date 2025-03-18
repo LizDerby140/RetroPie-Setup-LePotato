@@ -40,7 +40,7 @@ function _get_branch_amiberry() {
 
 function _get_platform_amiberry() {
     local platform="$__platform-sdl2"
-    if isPlatform "aarch64" && isPlatform "rpi"; then
+    if isPlatform "aarch64"; then
         platform="$__platform-64-sdl2"
     elif isPlatform "dispmanx"; then
         platform="$__platform"
@@ -54,8 +54,6 @@ function _get_platform_amiberry() {
         platform="vero4k"
     elif isPlatform "x86"; then
         platform="x86-64"
-    elif isPlatform "aarch64"; then
-        platform="aarch64"
     fi
     echo "$platform"
 }
