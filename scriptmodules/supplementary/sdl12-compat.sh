@@ -15,7 +15,7 @@ rp_module_help="Provides a binary and source compatible API for programs written
 rp_module_licence="ZLIB https://raw.githubusercontent.com/libsdl-org/sdl12-compat/main/LICENSE.txt"
 rp_module_repo="git https://github.com/libsdl-org/sdl12-compat :_version_sdl12-compat"
 rp_module_section="depends"
-rp_module_flags="!x11"
+rp_module_flags=""
 
 function _version_sdl12-compat() {
     local ver="1.2.68"
