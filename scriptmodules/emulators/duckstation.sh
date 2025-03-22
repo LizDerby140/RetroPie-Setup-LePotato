@@ -42,7 +42,7 @@ function depends_duckstation() {
     # Check for required Qt version
     printMsgs "console" "Checking Qt version..."
     if command -v qmake >/dev/null; then
-        local qt_version=$(qmake -v | grep -oP 'Qt version \K[0-9\.]+')
+        local qt_version=$(qmake -v | grep -oP 'Qt version \\K[0-9\\.]+')
         printMsgs "console" "Found Qt version: $qt_version"
     else
         printMsgs "console" "qmake not found, Qt may not be properly installed"
@@ -207,67 +207,22 @@ function install_duckstation() {
             return 1
         fi
     fi
-    
-    if [[ -n "$nogui_binary" ]]; then
-        printMsgs "console" "Found NoGUI binary: $nogui_binary"
-        cp "$nogui_binary" "$md_inst/bin/"
-        chmod +x "$md_inst/bin/duckstation-nogui"
-    fi
-    
-    # Search for resources directory
-    printMsgs "console" "Searching for resources directory..."
-    local resources_dir=$(find "$md_build" -type d -name "resources" | head -n 1)
-    
-    if [[ -n "$resources_dir" ]]; then
-        printMsgs "console" "Found resources: $resources_dir"
-        cp -r "$resources_dir" "$md_inst/"
-    else
-        printMsgs "console" "Resources directory not found in build"
-        # If we're using pre-built binaries, resources should already be copied
-    fi
-    
-    # Create BIOS directory
-    printMsgs "console" "Creating BIOS directory..."
-    mkUserDir "$biosdir/duckstation"
-    
-    # Create settings directory
-    printMsgs "console" "Creating settings directory..."
-    mkUserDir "$home/.local/share/duckstation"
-    ln -sf "$biosdir/duckstation" "$home/.local/share/duckstation/bios"
-    
-    printMsgs "console" "Installation completed"
 }
 
 function configure_duckstation() {
     mkRomDir "psx"
     
     # Create wrapper scripts to launch duckstation with proper paths
-    printMsgs "console" "Creating wrapper scripts..."
     cat > "$md_inst/duckstation.sh" << _EOF_
 #!/bin/bash
 cd "$md_inst"
-if [[ -f "./bin/duckstation-qt" ]]; then
-    ./bin/duckstation-qt "\$@"
-else
-    echo "Error: duckstation-qt binary not found!"
-    exit 1
-fi
+./duckstation-qt "\$@"
 _EOF_
 
     cat > "$md_inst/duckstation-nogui.sh" << _EOF_
 #!/bin/bash
 cd "$md_inst"
-if [[ -f "./bin/duckstation-nogui" ]]; then
-    ./bin/duckstation-nogui "\$@"
-else
-    echo "duckstation-nogui binary not found. Using GUI version instead."
-    if [[ -f "./bin/duckstation-qt" ]]; then
-        ./bin/duckstation-qt "\$@"
-    else
-        echo "Error: No DuckStation binaries found!"
-        exit 1
-    fi
-fi
+./duckstation-nogui "\$@"
 _EOF_
 
     chmod +x "$md_inst/duckstation.sh" "$md_inst/duckstation-nogui.sh"
@@ -320,26 +275,6 @@ ShowVPS = false
 ShowResolution = false
 _EOF_
         chown $user:$user "$config_dir/settings.ini"
-    fi
-
-    # Verify installation
-    printMsgs "console" "Verifying installation..."
-    if [[ -f "$md_inst/bin/duckstation-qt" ]]; then
-        printMsgs "console" "✓ duckstation-qt found at $md_inst/bin/duckstation-qt"
-    else
-        printMsgs "console" "✗ duckstation-qt not found!"
-    fi
-    
-    if [[ -f "$md_inst/bin/duckstation-nogui" ]]; then
-        printMsgs "console" "✓ duckstation-nogui found at $md_inst/bin/duckstation-nogui"
-    else
-        printMsgs "console" "ℹ duckstation-nogui not found, only GUI version will be available"
-    fi
-    
-    if [[ -d "$md_inst/resources" ]]; then
-        printMsgs "console" "✓ resources directory found at $md_inst/resources"
-    else
-        printMsgs "console" "✗ resources directory not found!"
     fi
 
     # Display setup instructions
