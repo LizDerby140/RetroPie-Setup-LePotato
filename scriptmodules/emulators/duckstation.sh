@@ -67,15 +67,61 @@ function build_duckstation() {
     # Build
     make -j$(nproc)
     
-    md_ret_require="$md_build/build/bin/duckstation-qt"
+    # Add verbose logging to help debug build issues
+    printMsgs "console" "Build completed. Checking for binary files..."
+    find "$md_build/build/bin" -type f -executable -print || true
 }
 
 function install_duckstation() {
-    md_ret_files=(
-        "build/bin/duckstation-qt"
-        "build/bin/duckstation-nogui"
-        "build/bin/resources"
-    )
+    # Instead of using md_ret_files, manually install the files
+    # This provides more flexibility if file paths change
+    
+    # First check if the binaries exist
+    if [[ ! -f "$md_build/build/bin/duckstation-qt" ]]; then
+        # Look for the qt binary in alternate locations
+        local qt_binary=$(find "$md_build" -name "duckstation-qt" -type f -executable | head -n 1)
+        
+        if [[ -n "$qt_binary" ]]; then
+            printMsgs "console" "Found duckstation-qt binary at alternate location: $qt_binary"
+            # Create bin directory if it doesn't exist
+            mkdir -p "$md_inst/bin"
+            # Copy the binary and set permissions
+            cp "$qt_binary" "$md_inst/bin/"
+            chmod +x "$md_inst/bin/duckstation-qt"
+        else
+            md_ret_errors+=("Could not find duckstation-qt binary. Build may have failed.")
+            return 1
+        fi
+    else
+        # Create bin directory
+        mkdir -p "$md_inst/bin"
+        
+        # Copy DuckStation binaries
+        cp "$md_build/build/bin/duckstation-qt" "$md_inst/bin/"
+        chmod +x "$md_inst/bin/duckstation-qt"
+        
+        if [[ -f "$md_build/build/bin/duckstation-nogui" ]]; then
+            cp "$md_build/build/bin/duckstation-nogui" "$md_inst/bin/"
+            chmod +x "$md_inst/bin/duckstation-nogui"
+        else
+            printMsgs "console" "duckstation-nogui binary not found, skipping."
+        fi
+    fi
+    
+    # Copy resources
+    if [[ -d "$md_build/build/bin/resources" ]]; then
+        cp -r "$md_build/build/bin/resources" "$md_inst/"
+    elif [[ -d "$md_build/resources" ]]; then
+        cp -r "$md_build/resources" "$md_inst/"
+    else
+        printMsgs "console" "Resources directory not found in expected locations."
+        # Try to find resources directory
+        local resources_dir=$(find "$md_build" -name "resources" -type d | head -n 1)
+        if [[ -n "$resources_dir" ]]; then
+            printMsgs "console" "Found resources at: $resources_dir"
+            cp -r "$resources_dir" "$md_inst/"
+        fi
+    fi
     
     # Create BIOS directory
     mkUserDir "$biosdir/duckstation"
@@ -92,13 +138,18 @@ function configure_duckstation() {
     cat > "$md_inst/duckstation.sh" << _EOF_
 #!/bin/bash
 cd "$md_inst"
-./duckstation-qt "\$@"
+./bin/duckstation-qt "\$@"
 _EOF_
 
     cat > "$md_inst/duckstation-nogui.sh" << _EOF_
 #!/bin/bash
 cd "$md_inst"
-./duckstation-nogui "\$@"
+if [[ -f "./bin/duckstation-nogui" ]]; then
+    ./bin/duckstation-nogui "\$@"
+else
+    echo "duckstation-nogui binary not found. Using GUI version instead."
+    ./bin/duckstation-qt "\$@"
+fi
 _EOF_
 
     chmod +x "$md_inst/duckstation.sh" "$md_inst/duckstation-nogui.sh"
